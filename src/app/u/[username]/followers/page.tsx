@@ -11,13 +11,14 @@ import { authOptions } from "@/lib/authOptions";
 export default async function FollowersPage({
   params,
 }: {
-  params: { username: string };
+  params: Promise<{ username: string }>;
 }) {
+  const { username } = await params;
   const session = await getServerSession(authOptions);
   const currentUserId = session?.user?.id;
 
   const user = await prisma.user.findUnique({
-    where: { username: params.username },
+    where: { username },
     include: {
       followers: {
         include: {
@@ -31,7 +32,7 @@ export default async function FollowersPage({
               bio: true,
               followers: currentUserId ? {
                 where: { followerId: currentUserId },
-                select: { id: true },
+                select: { followerId: true },
               } : false,
             },
           },

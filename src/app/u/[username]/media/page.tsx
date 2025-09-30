@@ -35,13 +35,13 @@ export default async function MediaPage({
           },
           media: true,
           likes: session?.user?.id
-            ? { where: { userId: session.user.id }, select: { id: true } }
+            ? { where: { userId: session.user.id }, select: { userId: true } }
             : false,
           bookmarks: session?.user?.id
-            ? { where: { userId: session.user.id }, select: { id: true } }
+            ? { where: { userId: session.user.id }, select: { userId: true } }
             : false,
           reposts: session?.user?.id
-            ? { where: { userId: session.user.id }, select: { id: true } }
+            ? { where: { userId: session.user.id }, select: { userId: true } }
             : false,
           _count: {
             select: {
@@ -93,13 +93,16 @@ export default async function MediaPage({
             user.posts.map((post) => (
               <PostCard
                 key={post.id}
-                post={{
-                  ...post,
-                  isLiked: post.likes && post.likes.length > 0,
-                  isBookmarked: post.bookmarks && post.bookmarks.length > 0,
-                  isReposted: post.reposts && post.reposts.length > 0,
+                id={post.id}
+                author={{
+                  username: post.author?.username,
+                  name: post.author?.name
                 }}
-                currentUserId={session?.user?.id}
+                content={post.content}
+                counts={{
+                  likes: post._count?.likes || 0,
+                  comments: post._count?.comments || 0
+                }}
               />
             ))
           )}

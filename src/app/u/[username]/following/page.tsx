@@ -11,17 +11,18 @@ import { authOptions } from "@/lib/authOptions";
 export default async function FollowingPage({
   params,
 }: {
-  params: { username: string };
+  params: Promise<{ username: string }>;
 }) {
+  const { username } = await params;
   const session = await getServerSession(authOptions);
   const currentUserId = session?.user?.id;
 
   const user = await prisma.user.findUnique({
-    where: { username: params.username },
+    where: { username },
     include: {
       following: {
         include: {
-          following: {
+          followee: {
             select: {
               id: true,
               name: true,
@@ -31,7 +32,7 @@ export default async function FollowingPage({
               bio: true,
               followers: currentUserId ? {
                 where: { followerId: currentUserId },
-                select: { id: true },
+                select: { followerId: true },
               } : false,
             },
           },
@@ -93,35 +94,35 @@ export default async function FollowingPage({
               <p className="text-gray-500 text-sm">When @{user.username} follows someone, they'll show up here.</p>
             </div>
           ) : (
-            user.following.map(({ following }) => {
-              const isFollowing = following.followers && following.followers.length > 0;
-              const isOwnProfile = currentUserId === following.id;
+            user.following.map(({ followee }) => {
+              const isFollowing = followee.followers && followee.followers.length > 0;
+              const isOwnProfile = currentUserId === followee.id;
               
               return (
-                <div key={following.id} className="p-4 hover:bg-gray-50 transition-colors">
+                <div key={followee.id} className="p-4 hover:bg-gray-50 transition-colors">
                   <div className="flex items-start gap-3">
-                    <Link href={`/u/${following.username}`}>
-                      <Avatar src={following.image} alt={following.name || following.username || "User"} size="lg" />
+                    <Link href={`/u/${followee.username}`}>
+                      <Avatar src={followee.image} alt={followee.name || followee.username || "User"} size="lg" />
                     </Link>
                     <div className="flex-1 min-w-0">
-                      <Link href={`/u/${following.username}`} className="block">
+                      <Link href={`/u/${followee.username}`} className="block">
                         <div className="flex items-center gap-1 mb-0.5">
                           <span className="font-bold text-gray-900 hover:underline truncate">
-                            {following.name || "BlaBla User"}
+                            {followee.name || "BlaBla User"}
                           </span>
-                          {following.verified && (
+                          {followee.verified && (
                             <VerifiedBadgeIcon className="text-blue-500 flex-shrink-0" size={18} />
                           )}
                         </div>
-                        <p className="text-gray-600 text-sm truncate">@{following.username}</p>
+                        <p className="text-gray-600 text-sm truncate">@{followee.username}</p>
                       </Link>
-                      {following.bio && (
-                        <p className="text-gray-700 mt-2 text-sm line-clamp-2">{following.bio}</p>
+                      {followee.bio && (
+                        <p className="text-gray-700 mt-2 text-sm line-clamp-2">{followee.bio}</p>
                       )}
                     </div>
                     {!isOwnProfile && currentUserId && (
                       <FollowButton
-                        targetUserId={following.id}
+                        targetUserId={followee.id}
                         isFollowing={isFollowing}
                         variant="small"
                       />

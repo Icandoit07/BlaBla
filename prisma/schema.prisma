@@ -40,6 +40,11 @@ model User {
   reposts            Repost[]
   mentions           Mention[]
   votes              Vote[]
+  sentMessages       Message[] @relation("SentMessages")
+  receivedMessages   Message[] @relation("ReceivedMessages")
+  conversations1     Conversation[] @relation("User1Conversations")
+  conversations2     Conversation[] @relation("User2Conversations")
+  messageReactions   MessageReaction[] @relation("MessageReactions")
 
   @@index([username])
 }
@@ -294,4 +299,56 @@ enum OtpType {
   PHONE
 }
 
+model Conversation {
+  id          String   @id @default(cuid())
+  user1Id     String
+  user2Id     String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  user1       User     @relation("User1Conversations", fields: [user1Id], references: [id], onDelete: Cascade)
+  user2       User     @relation("User2Conversations", fields: [user2Id], references: [id], onDelete: Cascade)
+  messages    Message[]
+
+  @@unique([user1Id, user2Id])
+  @@index([user1Id])
+  @@index([user2Id])
+}
+
+model Message {
+  id             String       @id @default(cuid())
+  conversationId String
+  senderId       String
+  receiverId     String
+  content        String?      @db.Text
+  mediaUrl       String?
+  mediaType      String?
+  read           Boolean      @default(false)
+  createdAt      DateTime     @default(now())
+
+  conversation   Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  sender         User         @relation("SentMessages", fields: [senderId], references: [id], onDelete: Cascade)
+  receiver       User         @relation("ReceivedMessages", fields: [receiverId], references: [id], onDelete: Cascade)
+  reactions      MessageReaction[]
+
+  @@index([conversationId])
+  @@index([senderId])
+  @@index([receiverId])
+  @@index([createdAt])
+}
+
+model MessageReaction {
+  id        String   @id @default(cuid())
+  messageId String
+  userId    String
+  emoji     String
+  createdAt DateTime @default(now())
+
+  message   Message  @relation(fields: [messageId], references: [id], onDelete: Cascade)
+  user      User     @relation("MessageReactions", fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([messageId, userId])
+  @@index([messageId])
+  @@index([userId])
+}
 

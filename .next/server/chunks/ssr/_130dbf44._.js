@@ -88,22 +88,32 @@ __turbopack_context__.s([
     ()=>MoreHorizontalIcon,
     "PaletteIcon",
     ()=>PaletteIcon,
+    "PaperclipIcon",
+    ()=>PaperclipIcon,
     "PhoneIcon",
     ()=>PhoneIcon,
     "RepeatIcon",
     ()=>RepeatIcon,
     "SearchIcon",
     ()=>SearchIcon,
+    "SendIcon",
+    ()=>SendIcon,
     "SettingsIcon",
     ()=>SettingsIcon,
     "ShareIcon",
     ()=>ShareIcon,
+    "SmileIcon",
+    ()=>SmileIcon,
     "TrendingIcon",
     ()=>TrendingIcon,
     "UserIcon",
     ()=>UserIcon,
     "VerifiedBadgeIcon",
-    ()=>VerifiedBadgeIcon
+    ()=>VerifiedBadgeIcon,
+    "VideoIcon",
+    ()=>VideoIcon,
+    "XIcon",
+    ()=>XIcon
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/rsc/react-jsx-dev-runtime.js [app-rsc] (ecmascript)");
 ;
@@ -1164,6 +1174,180 @@ function ArrowLeftIcon({ className = "", size = 24 }) {
     }, void 0, false, {
         fileName: "[project]/src/components/icons/index.tsx",
         lineNumber: 254,
+        columnNumber: 5
+    }, this);
+}
+function SendIcon({ className = "", size = 24 }) {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+        width: size,
+        height: size,
+        viewBox: "0 0 24 24",
+        fill: "none",
+        className: className,
+        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+            d: "M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z",
+            stroke: "currentColor",
+            strokeWidth: "2",
+            strokeLinecap: "round",
+            strokeLinejoin: "round"
+        }, void 0, false, {
+            fileName: "[project]/src/components/icons/index.tsx",
+            lineNumber: 263,
+            columnNumber: 7
+        }, this)
+    }, void 0, false, {
+        fileName: "[project]/src/components/icons/index.tsx",
+        lineNumber: 262,
+        columnNumber: 5
+    }, this);
+}
+function VideoIcon({ className = "", size = 24 }) {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+        width: size,
+        height: size,
+        viewBox: "0 0 24 24",
+        fill: "none",
+        className: className,
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                d: "M23 7l-7 5 7 5V7z",
+                stroke: "currentColor",
+                strokeWidth: "2",
+                strokeLinecap: "round",
+                strokeLinejoin: "round"
+            }, void 0, false, {
+                fileName: "[project]/src/components/icons/index.tsx",
+                lineNumber: 271,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("rect", {
+                x: "1",
+                y: "5",
+                width: "15",
+                height: "14",
+                rx: "2",
+                ry: "2",
+                stroke: "currentColor",
+                strokeWidth: "2"
+            }, void 0, false, {
+                fileName: "[project]/src/components/icons/index.tsx",
+                lineNumber: 272,
+                columnNumber: 7
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "[project]/src/components/icons/index.tsx",
+        lineNumber: 270,
+        columnNumber: 5
+    }, this);
+}
+function SmileIcon({ className = "", size = 24 }) {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+        width: size,
+        height: size,
+        viewBox: "0 0 24 24",
+        fill: "none",
+        className: className,
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("circle", {
+                cx: "12",
+                cy: "12",
+                r: "10",
+                stroke: "currentColor",
+                strokeWidth: "2"
+            }, void 0, false, {
+                fileName: "[project]/src/components/icons/index.tsx",
+                lineNumber: 280,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                d: "M8 14s1.5 2 4 2 4-2 4-2",
+                stroke: "currentColor",
+                strokeWidth: "2",
+                strokeLinecap: "round"
+            }, void 0, false, {
+                fileName: "[project]/src/components/icons/index.tsx",
+                lineNumber: 281,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("line", {
+                x1: "9",
+                y1: "9",
+                x2: "9.01",
+                y2: "9",
+                stroke: "currentColor",
+                strokeWidth: "2",
+                strokeLinecap: "round"
+            }, void 0, false, {
+                fileName: "[project]/src/components/icons/index.tsx",
+                lineNumber: 282,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("line", {
+                x1: "15",
+                y1: "9",
+                x2: "15.01",
+                y2: "9",
+                stroke: "currentColor",
+                strokeWidth: "2",
+                strokeLinecap: "round"
+            }, void 0, false, {
+                fileName: "[project]/src/components/icons/index.tsx",
+                lineNumber: 283,
+                columnNumber: 7
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "[project]/src/components/icons/index.tsx",
+        lineNumber: 279,
+        columnNumber: 5
+    }, this);
+}
+function PaperclipIcon({ className = "", size = 24 }) {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+        width: size,
+        height: size,
+        viewBox: "0 0 24 24",
+        fill: "none",
+        className: className,
+        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+            d: "M21.44 11.05l-9.19 9.19a6 6 0 01-8.49-8.49l9.19-9.19a4 4 0 015.66 5.66l-9.2 9.19a2 2 0 01-2.83-2.83l8.49-8.48",
+            stroke: "currentColor",
+            strokeWidth: "2",
+            strokeLinecap: "round",
+            strokeLinejoin: "round"
+        }, void 0, false, {
+            fileName: "[project]/src/components/icons/index.tsx",
+            lineNumber: 291,
+            columnNumber: 7
+        }, this)
+    }, void 0, false, {
+        fileName: "[project]/src/components/icons/index.tsx",
+        lineNumber: 290,
+        columnNumber: 5
+    }, this);
+}
+function XIcon({ className = "", size = 24 }) {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+        width: size,
+        height: size,
+        viewBox: "0 0 24 24",
+        fill: "none",
+        className: className,
+        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+            d: "M18 6L6 18M6 6l12 12",
+            stroke: "currentColor",
+            strokeWidth: "2",
+            strokeLinecap: "round",
+            strokeLinejoin: "round"
+        }, void 0, false, {
+            fileName: "[project]/src/components/icons/index.tsx",
+            lineNumber: 299,
+            columnNumber: 7
+        }, this)
+    }, void 0, false, {
+        fileName: "[project]/src/components/icons/index.tsx",
+        lineNumber: 298,
         columnNumber: 5
     }, this);
 }

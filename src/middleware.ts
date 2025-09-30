@@ -11,7 +11,7 @@ export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   // Protected routes that require authentication
-  const protectedRoutes = ["/compose", "/notifications", "/bookmarks"];
+  const protectedRoutes = ["/compose", "/notifications", "/bookmarks", "/messages"];
   const isProtectedRoute = protectedRoutes.some(route => pathname.startsWith(route));
 
   if (isProtectedRoute && !token) {
@@ -28,6 +28,7 @@ export const config = {
     "/compose/:path*",
     "/notifications/:path*",
     "/bookmarks/:path*",
+    "/messages/:path*",
   ],
 };
 

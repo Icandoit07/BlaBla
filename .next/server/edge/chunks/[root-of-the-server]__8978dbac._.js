@@ -35,7 +35,8 @@ async function middleware(request) {
     const protectedRoutes = [
         "/compose",
         "/notifications",
-        "/bookmarks"
+        "/bookmarks",
+        "/messages"
     ];
     const isProtectedRoute = protectedRoutes.some((route)=>pathname.startsWith(route));
     if (isProtectedRoute && !token) {
@@ -49,7 +50,8 @@ const config = {
     matcher: [
         "/compose/:path*",
         "/notifications/:path*",
-        "/bookmarks/:path*"
+        "/bookmarks/:path*",
+        "/messages/:path*"
     ]
 };
 }),

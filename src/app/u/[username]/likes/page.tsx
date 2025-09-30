@@ -37,13 +37,13 @@ export default async function LikesPage({
               },
               media: true,
               likes: session?.user?.id
-                ? { where: { userId: session.user.id }, select: { id: true } }
+                ? { where: { userId: session.user.id }, select: { userId: true } }
                 : false,
               bookmarks: session?.user?.id
-                ? { where: { userId: session.user.id }, select: { id: true } }
+                ? { where: { userId: session.user.id }, select: { userId: true } }
                 : false,
               reposts: session?.user?.id
-                ? { where: { userId: session.user.id }, select: { id: true } }
+                ? { where: { userId: session.user.id }, select: { userId: true } }
                 : false,
               _count: {
                 select: {
@@ -97,13 +97,16 @@ export default async function LikesPage({
             user.likes.map((like) => (
               <PostCard
                 key={like.post.id}
-                post={{
-                  ...like.post,
-                  isLiked: like.post.likes && like.post.likes.length > 0,
-                  isBookmarked: like.post.bookmarks && like.post.bookmarks.length > 0,
-                  isReposted: like.post.reposts && like.post.reposts.length > 0,
+                id={like.post.id}
+                author={{
+                  username: like.post.author?.username,
+                  name: like.post.author?.name
                 }}
-                currentUserId={session?.user?.id}
+                content={like.post.content}
+                counts={{
+                  likes: like.post._count?.likes || 0,
+                  comments: like.post._count?.comments || 0
+                }}
               />
             ))
           )}

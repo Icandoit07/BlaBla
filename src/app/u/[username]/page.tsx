@@ -1,7 +1,7 @@
 import { prisma } from "@/lib/db";
 import Link from "next/link";
 import { PostCard } from "@/components/PostCard";
-import { UserIcon, EditIcon, VerifiedBadgeIcon, LocationIcon, LinkIcon, CalendarIcon, SettingsIcon } from "@/components/icons";
+import { UserIcon, EditIcon, VerifiedBadgeIcon, LocationIcon, LinkIcon, CalendarIcon, SettingsIcon, MessageIcon } from "@/components/icons";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/authOptions";
 import { FollowButton } from "@/components/FollowButton";
@@ -29,7 +29,7 @@ export default async function ProfilePage({ params }: { params: Promise<{ userna
           followerId: session.user.id
         },
         select: {
-          id: true
+          followerId: true
         }
       } : false,
     }
@@ -114,11 +114,13 @@ export default async function ProfilePage({ params }: { params: Promise<{ userna
                       targetUserId={user.id}
                       isFollowing={isFollowing}
                     />
-                    <button className="p-2.5 border border-gray-300 hover:border-gray-400 rounded-full transition-all hover:bg-gray-50">
-                      <svg className="w-5 h-5 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
-                      </svg>
-                    </button>
+                    <Link
+                      href={`/messages/${user.username}`}
+                      className="inline-flex items-center gap-2 px-6 py-2.5 border-2 border-gray-300 hover:border-gray-400 text-gray-700 font-semibold rounded-full transition-all hover:bg-gray-50"
+                    >
+                      <MessageIcon size={18} />
+                      Message
+                    </Link>
                   </>
                 )}
               </div>

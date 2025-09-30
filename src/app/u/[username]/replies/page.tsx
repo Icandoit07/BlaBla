@@ -36,13 +36,13 @@ export default async function RepliesPage({
                 },
               },
               likes: session?.user?.id
-                ? { where: { userId: session.user.id }, select: { id: true } }
+                ? { where: { userId: session.user.id }, select: { userId: true } }
                 : false,
               bookmarks: session?.user?.id
-                ? { where: { userId: session.user.id }, select: { id: true } }
+                ? { where: { userId: session.user.id }, select: { userId: true } }
                 : false,
               reposts: session?.user?.id
-                ? { where: { userId: session.user.id }, select: { id: true } }
+                ? { where: { userId: session.user.id }, select: { userId: true } }
                 : false,
               _count: {
                 select: {
@@ -115,13 +115,16 @@ export default async function RepliesPage({
                 <div className="border-t border-gray-200 pt-4">
                   <p className="text-gray-600 text-sm mb-2">Original post:</p>
                   <PostCard 
-                    post={{
-                      ...comment.post,
-                      isLiked: comment.post.likes && comment.post.likes.length > 0,
-                      isBookmarked: comment.post.bookmarks && comment.post.bookmarks.length > 0,
-                      isReposted: comment.post.reposts && comment.post.reposts.length > 0,
+                    id={comment.post.id}
+                    author={{
+                      username: comment.post.author?.username,
+                      name: comment.post.author?.name
                     }}
-                    currentUserId={session?.user?.id}
+                    content={comment.post.content}
+                    counts={{
+                      likes: comment.post._count?.likes || 0,
+                      comments: comment.post._count?.comments || 0
+                    }}
                   />
                 </div>
               </div>
