@@ -320,6 +320,8 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
 __turbopack_context__.s([
     "AlertCircleIcon",
     ()=>AlertCircleIcon,
+    "ArrowLeftIcon",
+    ()=>ArrowLeftIcon,
     "BellIcon",
     ()=>BellIcon,
     "BookmarkIcon",
@@ -352,6 +354,8 @@ __turbopack_context__.s([
     ()=>MessageIcon,
     "MoreHorizontalIcon",
     ()=>MoreHorizontalIcon,
+    "PaletteIcon",
+    ()=>PaletteIcon,
     "PhoneIcon",
     ()=>PhoneIcon,
     "RepeatIcon",
@@ -1391,7 +1395,101 @@ function CalendarIcon(param) {
     }, this);
 }
 _c24 = CalendarIcon;
-var _c, _c1, _c2, _c3, _c4, _c5, _c6, _c7, _c8, _c9, _c10, _c11, _c12, _c13, _c14, _c15, _c16, _c17, _c18, _c19, _c20, _c21, _c22, _c23, _c24;
+function PaletteIcon(param) {
+    let { className = "", size = 24 } = param;
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+        width: size,
+        height: size,
+        viewBox: "0 0 24 24",
+        fill: "none",
+        className: className,
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                d: "M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 011.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z",
+                stroke: "currentColor",
+                strokeWidth: "2",
+                strokeLinecap: "round",
+                strokeLinejoin: "round"
+            }, void 0, false, {
+                fileName: "[project]/src/components/icons/index.tsx",
+                lineNumber: 243,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("circle", {
+                cx: "6.5",
+                cy: "11.5",
+                r: "1.5",
+                fill: "currentColor"
+            }, void 0, false, {
+                fileName: "[project]/src/components/icons/index.tsx",
+                lineNumber: 244,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("circle", {
+                cx: "9.5",
+                cy: "7.5",
+                r: "1.5",
+                fill: "currentColor"
+            }, void 0, false, {
+                fileName: "[project]/src/components/icons/index.tsx",
+                lineNumber: 245,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("circle", {
+                cx: "14.5",
+                cy: "7.5",
+                r: "1.5",
+                fill: "currentColor"
+            }, void 0, false, {
+                fileName: "[project]/src/components/icons/index.tsx",
+                lineNumber: 246,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("circle", {
+                cx: "17.5",
+                cy: "11.5",
+                r: "1.5",
+                fill: "currentColor"
+            }, void 0, false, {
+                fileName: "[project]/src/components/icons/index.tsx",
+                lineNumber: 247,
+                columnNumber: 7
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "[project]/src/components/icons/index.tsx",
+        lineNumber: 242,
+        columnNumber: 5
+    }, this);
+}
+_c25 = PaletteIcon;
+function ArrowLeftIcon(param) {
+    let { className = "", size = 24 } = param;
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+        width: size,
+        height: size,
+        viewBox: "0 0 24 24",
+        fill: "none",
+        className: className,
+        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+            d: "M19 12H5M5 12l7 7M5 12l7-7",
+            stroke: "currentColor",
+            strokeWidth: "2",
+            strokeLinecap: "round",
+            strokeLinejoin: "round"
+        }, void 0, false, {
+            fileName: "[project]/src/components/icons/index.tsx",
+            lineNumber: 255,
+            columnNumber: 7
+        }, this)
+    }, void 0, false, {
+        fileName: "[project]/src/components/icons/index.tsx",
+        lineNumber: 254,
+        columnNumber: 5
+    }, this);
+}
+_c26 = ArrowLeftIcon;
+var _c, _c1, _c2, _c3, _c4, _c5, _c6, _c7, _c8, _c9, _c10, _c11, _c12, _c13, _c14, _c15, _c16, _c17, _c18, _c19, _c20, _c21, _c22, _c23, _c24, _c25, _c26;
 __turbopack_context__.k.register(_c, "HomeIcon");
 __turbopack_context__.k.register(_c1, "SearchIcon");
 __turbopack_context__.k.register(_c2, "BellIcon");
@@ -1417,6 +1515,8 @@ __turbopack_context__.k.register(_c21, "CameraIcon");
 __turbopack_context__.k.register(_c22, "LocationIcon");
 __turbopack_context__.k.register(_c23, "LinkIcon");
 __turbopack_context__.k.register(_c24, "CalendarIcon");
+__turbopack_context__.k.register(_c25, "PaletteIcon");
+__turbopack_context__.k.register(_c26, "ArrowLeftIcon");
 if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
     __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
 }

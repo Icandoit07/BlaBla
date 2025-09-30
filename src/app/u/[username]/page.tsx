@@ -4,7 +4,7 @@ import { PostCard } from "@/components/PostCard";
 import { UserIcon, EditIcon, VerifiedBadgeIcon, LocationIcon, LinkIcon, CalendarIcon, SettingsIcon } from "@/components/icons";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/authOptions";
-import FollowButton from "@/components/FollowButton";
+import { FollowButton } from "@/components/FollowButton";
 
 export default async function ProfilePage({ params }: { params: Promise<{ username: string }> }) {
   const { username } = await params;
@@ -111,8 +111,8 @@ export default async function ProfilePage({ params }: { params: Promise<{ userna
                 ) : (
                   <>
                     <FollowButton
-                      userId={user.id}
-                      initialIsFollowing={isFollowing}
+                      targetUserId={user.id}
+                      isFollowing={isFollowing}
                     />
                     <button className="p-2.5 border border-gray-300 hover:border-gray-400 rounded-full transition-all hover:bg-gray-50">
                       <svg className="w-5 h-5 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -179,18 +179,18 @@ export default async function ProfilePage({ params }: { params: Promise<{ userna
                 </span>
                 <span className="text-gray-600 ml-1.5 text-sm">Posts</span>
               </div>
-              <div className="group cursor-pointer">
+              <Link href={`/u/${user.username}/following`} className="group cursor-pointer">
                 <span className="font-bold text-gray-900 group-hover:text-green-600 transition-colors">
                   {user._count.following.toLocaleString()}
                 </span>
-                <span className="text-gray-600 ml-1.5 text-sm">Following</span>
-              </div>
-              <div className="group cursor-pointer">
+                <span className="text-gray-600 ml-1.5 text-sm hover:underline">Following</span>
+              </Link>
+              <Link href={`/u/${user.username}/followers`} className="group cursor-pointer">
                 <span className="font-bold text-gray-900 group-hover:text-green-600 transition-colors">
                   {user._count.followers.toLocaleString()}
                 </span>
-                <span className="text-gray-600 ml-1.5 text-sm">Followers</span>
-              </div>
+                <span className="text-gray-600 ml-1.5 text-sm hover:underline">Followers</span>
+              </Link>
             </div>
           </div>
         </div>
@@ -198,18 +198,18 @@ export default async function ProfilePage({ params }: { params: Promise<{ userna
         {/* Tabs */}
         <div className="mt-6 bg-white rounded-t-2xl border border-b-0 border-gray-200 sticky top-16 z-40 shadow-sm">
           <div className="flex items-center gap-1 p-1">
-            <button className="flex-1 py-3 px-4 text-sm font-semibold text-green-600 bg-green-50 rounded-xl transition-all">
+            <Link href={`/u/${user.username}`} className="flex-1 py-3 px-4 text-sm font-semibold text-center text-green-600 bg-green-50 rounded-xl transition-all">
               Posts
-            </button>
-            <button className="flex-1 py-3 px-4 text-sm font-semibold text-gray-600 hover:bg-gray-50 rounded-xl transition-all">
+            </Link>
+            <Link href={`/u/${user.username}/replies`} className="flex-1 py-3 px-4 text-sm font-semibold text-center text-gray-600 hover:bg-gray-50 rounded-xl transition-all">
               Replies
-            </button>
-            <button className="flex-1 py-3 px-4 text-sm font-semibold text-gray-600 hover:bg-gray-50 rounded-xl transition-all">
+            </Link>
+            <Link href={`/u/${user.username}/media`} className="flex-1 py-3 px-4 text-sm font-semibold text-center text-gray-600 hover:bg-gray-50 rounded-xl transition-all">
               Media
-            </button>
-            <button className="flex-1 py-3 px-4 text-sm font-semibold text-gray-600 hover:bg-gray-50 rounded-xl transition-all">
+            </Link>
+            <Link href={`/u/${user.username}/likes`} className="flex-1 py-3 px-4 text-sm font-semibold text-center text-gray-600 hover:bg-gray-50 rounded-xl transition-all">
               Likes
-            </button>
+            </Link>
           </div>
         </div>
 

@@ -327,6 +327,8 @@ function LogoIcon({ size = 40 }) {
 __turbopack_context__.s([
     "AlertCircleIcon",
     ()=>AlertCircleIcon,
+    "ArrowLeftIcon",
+    ()=>ArrowLeftIcon,
     "BellIcon",
     ()=>BellIcon,
     "BookmarkIcon",
@@ -359,6 +361,8 @@ __turbopack_context__.s([
     ()=>MessageIcon,
     "MoreHorizontalIcon",
     ()=>MoreHorizontalIcon,
+    "PaletteIcon",
+    ()=>PaletteIcon,
     "PhoneIcon",
     ()=>PhoneIcon,
     "RepeatIcon",
@@ -1345,6 +1349,96 @@ function CalendarIcon({ className = "", size = 24 }) {
     }, void 0, true, {
         fileName: "[project]/src/components/icons/index.tsx",
         lineNumber: 233,
+        columnNumber: 5
+    }, this);
+}
+function PaletteIcon({ className = "", size = 24 }) {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+        width: size,
+        height: size,
+        viewBox: "0 0 24 24",
+        fill: "none",
+        className: className,
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                d: "M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 011.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z",
+                stroke: "currentColor",
+                strokeWidth: "2",
+                strokeLinecap: "round",
+                strokeLinejoin: "round"
+            }, void 0, false, {
+                fileName: "[project]/src/components/icons/index.tsx",
+                lineNumber: 243,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("circle", {
+                cx: "6.5",
+                cy: "11.5",
+                r: "1.5",
+                fill: "currentColor"
+            }, void 0, false, {
+                fileName: "[project]/src/components/icons/index.tsx",
+                lineNumber: 244,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("circle", {
+                cx: "9.5",
+                cy: "7.5",
+                r: "1.5",
+                fill: "currentColor"
+            }, void 0, false, {
+                fileName: "[project]/src/components/icons/index.tsx",
+                lineNumber: 245,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("circle", {
+                cx: "14.5",
+                cy: "7.5",
+                r: "1.5",
+                fill: "currentColor"
+            }, void 0, false, {
+                fileName: "[project]/src/components/icons/index.tsx",
+                lineNumber: 246,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("circle", {
+                cx: "17.5",
+                cy: "11.5",
+                r: "1.5",
+                fill: "currentColor"
+            }, void 0, false, {
+                fileName: "[project]/src/components/icons/index.tsx",
+                lineNumber: 247,
+                columnNumber: 7
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "[project]/src/components/icons/index.tsx",
+        lineNumber: 242,
+        columnNumber: 5
+    }, this);
+}
+function ArrowLeftIcon({ className = "", size = 24 }) {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+        width: size,
+        height: size,
+        viewBox: "0 0 24 24",
+        fill: "none",
+        className: className,
+        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+            d: "M19 12H5M5 12l7 7M5 12l7-7",
+            stroke: "currentColor",
+            strokeWidth: "2",
+            strokeLinecap: "round",
+            strokeLinejoin: "round"
+        }, void 0, false, {
+            fileName: "[project]/src/components/icons/index.tsx",
+            lineNumber: 255,
+            columnNumber: 7
+        }, this)
+    }, void 0, false, {
+        fileName: "[project]/src/components/icons/index.tsx",
+        lineNumber: 254,
         columnNumber: 5
     }, this);
 }

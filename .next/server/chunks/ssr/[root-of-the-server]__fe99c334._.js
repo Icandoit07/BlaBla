@@ -148,8 +148,57 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Nav$2e$
 ;
 ;
 const metadata = {
-    title: "BlaBla - Share Your Voice",
-    description: "Connect with friends and share your thoughts on BlaBla - India's modern social platform"
+    title: {
+        default: "BlaBla - Share Your Voice",
+        template: "%s | BlaBla"
+    },
+    description: "Connect with friends and share your thoughts on BlaBla - India's modern social platform. Post, like, comment, and discover trending topics.",
+    keywords: [
+        "social media",
+        "blabla",
+        "india",
+        "social network",
+        "connect",
+        "share",
+        "posts",
+        "trending"
+    ],
+    authors: [
+        {
+            name: "BlaBla Team"
+        }
+    ],
+    creator: "BlaBla",
+    publisher: "BlaBla",
+    metadataBase: new URL(process.env.NEXTAUTH_URL || 'http://localhost:3000'),
+    openGraph: {
+        type: "website",
+        locale: "en_IN",
+        url: "/",
+        title: "BlaBla - Share Your Voice",
+        description: "Connect with friends and share your thoughts on BlaBla - India's modern social platform",
+        siteName: "BlaBla"
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "BlaBla - Share Your Voice",
+        description: "Connect with friends and share your thoughts on BlaBla - India's modern social platform",
+        creator: "@blabla"
+    },
+    robots: {
+        index: true,
+        follow: true,
+        googleBot: {
+            index: true,
+            follow: true,
+            'max-video-preview': -1,
+            'max-image-preview': 'large',
+            'max-snippet': -1
+        }
+    },
+    icons: {
+        icon: "/favicon.ico"
+    }
 };
 function RootLayout({ children }) {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("html", {
@@ -160,7 +209,7 @@ function RootLayout({ children }) {
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Nav$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["Nav"], {}, void 0, false, {
                         fileName: "[project]/src/app/layout.tsx",
-                        lineNumber: 31,
+                        lineNumber: 67,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("main", {
@@ -168,23 +217,23 @@ function RootLayout({ children }) {
                         children: children
                     }, void 0, false, {
                         fileName: "[project]/src/app/layout.tsx",
-                        lineNumber: 32,
+                        lineNumber: 68,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/layout.tsx",
-                lineNumber: 30,
+                lineNumber: 66,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "[project]/src/app/layout.tsx",
-            lineNumber: 29,
+            lineNumber: 65,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/app/layout.tsx",
-        lineNumber: 28,
+        lineNumber: 64,
         columnNumber: 5
     }, this);
 }
