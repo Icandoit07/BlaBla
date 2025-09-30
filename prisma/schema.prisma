@@ -1,0 +1,297 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                 String    @id @default(cuid())
+  name               String?
+  username           String?   @unique
+  email              String?   @unique
+  phone              String?   @unique
+  emailVerified      DateTime?
+  phoneVerified      DateTime?
+  image              String?
+  coverImage         String?
+  bio                String?   @db.Text
+  location           String?
+  website            String?
+  passwordHash       String?
+  verified           Boolean   @default(false)
+  onboardingComplete Boolean   @default(false)
+  createdAt          DateTime  @default(now())
+  updatedAt          DateTime  @updatedAt
+
+  // Relations
+  accounts           Account[]
+  sessions           Session[]
+  posts              Post[]    @relation("UserPosts")
+  comments           Comment[]
+  likes              Like[]
+  following          Follow[]  @relation("Following")
+  followers          Follow[]  @relation("Followers")
+  notifications      Notification[] @relation("UserNotifications")
+  fromNotifications  Notification[] @relation("FromUserNotifications")
+  bookmarks          Bookmark[]
+  reposts            Repost[]
+  mentions           Mention[]
+  votes              Vote[]
+
+  @@index([username])
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+model Post {
+  id          String    @id @default(cuid())
+  authorId    String
+  content     String    @db.Text
+  replyToId   String?
+  quotePostId String?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  author      User      @relation("UserPosts", fields: [authorId], references: [id], onDelete: Cascade)
+  replyTo     Post?     @relation("PostReplies", fields: [replyToId], references: [id])
+  replies     Post[]    @relation("PostReplies")
+  quoteOf     Post?     @relation("PostQuotes", fields: [quotePostId], references: [id])
+  quotes      Post[]    @relation("PostQuotes")
+  comments    Comment[]
+  likes       Like[]
+  media       Media[]
+  postTags    PostHashtag[]
+  mentions    Mention[]
+  bookmarks   Bookmark[]
+  reposts     Repost[]
+  notifications Notification[] @relation("PostNotifications")
+  poll        Poll?
+
+  @@index([authorId, createdAt])
+}
+
+model Comment {
+  id        String   @id @default(cuid())
+  postId    String
+  authorId  String
+  content   String   @db.Text
+  parentId  String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  post      Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+  author    User     @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  parent    Comment? @relation("ThreadedComments", fields: [parentId], references: [id])
+  children  Comment[] @relation("ThreadedComments")
+
+  @@index([postId, createdAt])
+}
+
+model Like {
+  userId String
+  postId String
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  post Post @relation(fields: [postId], references: [id], onDelete: Cascade)
+
+  @@id([userId, postId])
+  @@index([postId])
+}
+
+model Bookmark {
+  userId String
+  postId String
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  post Post @relation(fields: [postId], references: [id], onDelete: Cascade)
+
+  @@id([userId, postId])
+  @@index([postId])
+}
+
+model Repost {
+  userId String
+  postId String
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  post Post @relation(fields: [postId], references: [id], onDelete: Cascade)
+
+  @@id([userId, postId])
+  @@index([postId])
+}
+
+model Mention {
+  id     String @id @default(cuid())
+  postId String
+  userId String
+
+  post Post @relation(fields: [postId], references: [id], onDelete: Cascade)
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([postId, userId])
+  @@index([userId])
+}
+
+model Poll {
+  id       String  @id @default(cuid())
+  postId   String  @unique
+  endsAt   DateTime
+  multiple Boolean  @default(false)
+
+  post   Post        @relation(fields: [postId], references: [id], onDelete: Cascade)
+  options PollOption[]
+}
+
+model PollOption {
+  id     String @id @default(cuid())
+  pollId String
+  text   String
+  idx    Int
+
+  poll  Poll   @relation(fields: [pollId], references: [id], onDelete: Cascade)
+  votes Vote[]
+
+  @@unique([pollId, idx])
+}
+
+model Vote {
+  userId       String
+  pollOptionId String
+  createdAt    DateTime @default(now())
+
+  user       User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  pollOption PollOption  @relation(fields: [pollOptionId], references: [id], onDelete: Cascade)
+
+  @@id([userId, pollOptionId])
+}
+
+model Follow {
+  followerId String
+  followeeId String
+  createdAt  DateTime @default(now())
+
+  follower User @relation("Followers", fields: [followerId], references: [id], onDelete: Cascade)
+  followee User @relation("Following", fields: [followeeId], references: [id], onDelete: Cascade)
+
+  @@id([followerId, followeeId])
+  @@index([followeeId])
+}
+
+model Media {
+  id        String   @id @default(cuid())
+  postId    String
+  url       String
+  type      MediaType
+  width     Int?
+  height    Int?
+  createdAt DateTime @default(now())
+
+  post Post @relation(fields: [postId], references: [id], onDelete: Cascade)
+
+  @@index([postId])
+}
+
+enum MediaType {
+  IMAGE
+  VIDEO
+  GIF
+}
+
+model Hashtag {
+  id    String @id @default(cuid())
+  tag   String @unique
+  posts PostHashtag[]
+}
+
+model PostHashtag {
+  postId   String
+  hashtagId String
+
+  post   Post   @relation(fields: [postId], references: [id], onDelete: Cascade)
+  hashtag Hashtag @relation(fields: [hashtagId], references: [id], onDelete: Cascade)
+
+  @@id([postId, hashtagId])
+}
+
+model Notification {
+  id        String             @id @default(cuid())
+  userId    String
+  type      NotificationType
+  fromUserId String?
+  postId    String?
+  readAt    DateTime?
+  createdAt DateTime @default(now())
+
+  user   User @relation("UserNotifications", fields: [userId], references: [id], onDelete: Cascade)
+  fromUser User? @relation("FromUserNotifications", fields: [fromUserId], references: [id])
+  post   Post? @relation("PostNotifications", fields: [postId], references: [id])
+
+  @@index([userId, createdAt])
+}
+
+enum NotificationType {
+  FOLLOW
+  LIKE
+  REPLY
+  MENTION
+}
+
+model OtpVerification {
+  id        String   @id @default(cuid())
+  contact   String
+  otp       String
+  type      OtpType
+  verified  Boolean  @default(false)
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+
+  @@index([contact, type])
+  @@index([expiresAt])
+}
+
+enum OtpType {
+  EMAIL
+  PHONE
+}
+
+

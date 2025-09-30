@@ -1,0 +1,11 @@
+{
+  "/(auth)/login/page": "app/(auth)/login/page.js",
+  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
+  "/api/posts/route": "app/api/posts/route.js",
+  "/api/trending/route": "app/api/trending/route.js",
+  "/api/users/suggestions/route": "app/api/users/suggestions/route.js",
+  "/feed/page": "app/feed/page.js",
+  "/page": "app/page.js",
+  "/search/page": "app/search/page.js",
+  "/trending/page": "app/trending/page.js"
+}
